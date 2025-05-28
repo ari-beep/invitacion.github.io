@@ -80,21 +80,24 @@ body {
     h1 {
       font-family: "Great Vibes", cursive;
       font-weight: 400;
+      font-size: 1.8em;
+      margin: 20px 0;
       font-style: normal;
   }
   .titulo {
     flex: 1;
     font-family: 'Great Vibes', cursive;
-      font-size: 60px;
+      font-size: 36px;
       margin-bottom: 30px;
       color: #ffd000;
-      margin-top: 200px;
+      margin-top: 100px;
+      padding: 0 10px;
   }
   .section {
     
-    padding: 35px 15px;
+    padding: 20px 10px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: 150px;
+    margin-top: 80px;
   }
   * {
     margin: 0;
@@ -111,8 +114,8 @@ body {
   
   .box {
     position: relative;
-    width: 280px;
-    height: 315px;
+    width: 160px;
+    height: 200px;
     transform-style: preserve-3d;
     animation: animate 50s linear infinite;
   }
@@ -149,26 +152,27 @@ body {
   .btn {
     background-color: gold;
     color: #0b1f3a;
-    padding: 10px 20px;
+    padding: 8px 16px;
     border: none;
-    font-size: 1em;
+    font-size: 0.9em;
     cursor: pointer;
     border-radius: 5px;
     text-decoration: none;
   }
   
   .gallery-placeholder {
+    width: 95%;
+    padding: 20px;
     border: 2px dashed gold;
-    padding: 50px;
     margin: 20px auto;
-    width: 80%;
     color: gold;
   }
   .imagen {
-    width: 900px;      /* Ancho deseado */
-    height: 600PX;      /* Altura automática (mantiene proporción) */
-    border-radius: 10px; /* Opcional: bordes redondeados */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Opcional: sombra */
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   }
   
   iframe {
