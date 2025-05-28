@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cumpleaños Norbert</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aguafina+Script&family=Great+Vibes&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+<!-- AUDIO -->
+<audio id="bg-music" autoplay muted loop>
+  <source src="musica.mpeg" type="audio/mpeg">
+  Tu navegador no soporta audio HTML5.
+</audio>
+
+<!-- BOTONES DE MÚSICA -->
+<button class="music-button" onclick="toggleMusic()" title="Reproducir/Pausar música">▶️</button>
+<button class="music-button" onclick="toggleMusic()">
+  <div id="disc" class="disc"></div>
+</button>
+
+<!-- SCRIPT -->
+<script>
+  const music = document.getElementById('bg-music');
+  const disc = document.getElementById('disc');
+  let isPlaying = false;
+
+  function toggleMusic() {
+    if (isPlaying) {
+      music.pause();
+      disc.classList.remove('playing');
+    } else {
+      music.muted = false;
+      music.play().then(() => {
+        disc.classList.add('playing');
+      }).catch(e => {
+        console.log("Error al reproducir música:", e);
+      });
+    }
+    isPlaying = !isPlaying;
+  }
+
+  // Reproducir automáticamente al primer clic o scroll
+  function startMusicOnInteraction() {
+    if (!isPlaying) {
+      music.muted = false;
+      music.play().then(() => {
+        disc.classList.add('playing');
+        isPlaying = true;
+      }).catch(e => {
+        console.log("Autoplay bloqueado:", e);
+      });
+    }
+    window.removeEventListener('click', startMusicOnInteraction);
+    window.removeEventListener('scroll', startMusicOnInteraction);
+  }
+
+  window.addEventListener('click', startMusicOnInteraction);
+  window.addEventListener('scroll', startMusicOnInteraction);
+</script>
+
+     <!-- PORTADA -->
+<div class="section reveal">
+
+  <div class="titulo">
+   <header>
+    <h1 style="margin-top: 150px;">¡Sorpresa para Norberto!</h1>
+    <p>Celebramos sus 70 años con amor</p>
+    <p><strong>07 de junio | Apartir de las 16:00 hrs</strong></p>
+    
+   </header>
+  </div>
+   <div class="carrusel-container">
+     <div class="box">
+       <span style="--i:1;"><img src="fotos/1.jpeg" alt=""></span>
+       <span style="--i:2;"><img src="fotos/2.jpeg" alt=""></span>
+       <span style="--i:3;"><img src="fotos/3.jpeg" alt=""></span>
+       <span style="--i:4;"><img src="fotos/4.jpeg" alt=""></span>
+       <span style="--i:5;"><img src="fotos/5.jpeg" alt=""></span>
+       <span style="--i:6;"><img src="fotos/6.jpeg" alt=""></span>
+       <span style="--i:7;"><img src="fotos/7.jpeg" alt=""></span>
+       <span style="--i:8;"><img src="fotos/8.jpeg" alt=""></span>
+       <span style="--i:9;"><img src="fotos/9.jpeg" alt=""></span>
+       <span style="--i:10;"><img src="fotos/10.jpeg" alt=""></span>
+       <span style="--i:10;"><img src="fotos/WhatsApp Image 2025-05-24 at 21.18.28 (1).jpeg" alt=""></span>
+
+     </div>
+    </div>
+
+  <!-- TEXTO DE INVITACIÓN -->
+<div class="section reveal">
+  <div class="section">
+    <h2>Estás cordialmente invitado</h2>
+    <p>A una fiesta <h2>Sorpresa</h2> en honor a <strong>Norberto Peredo Quinteros</strong>,
+    organizada con mucho cariño </p><p>por su esposa, hijos y nietos.</p>
+    <p>Una vida llena de momentos memorables merece una celebración especial</p>
+    <p>¡Nos encantaría compartir este momento contigo!</p>
+  </div>
+</div>
+  <!-- LUGAR -->
+<div class="section reveal">
+  <div class="section">
+    <h2>¿Dónde?</h2>
+    <h1><p>Jardín de eventos </p></h1> <p>Av. Villazón, rotonda Km 9.</p>
+     <p>Media cuadra hacia el norte sobre la Av. Santa Rita</p>
+     <a class="btn" href="https://maps.app.goo.gl/aDbqwYvv7fArbBNy7" target="_blank">
+        Ver ubicación en el mapa
+      </a>
+  </div>
+</div>
+  <!-- GALERÍA (ESPACIO RESERVADO) -->
+<div class="section reveal">
+  <div class="section">
+    <h2>Galería</h2>
+    <div class="gallery-placeholder">
+      <img src="fotos/Diseño sin título (1).png" alt="" class="imagen">
+    </div>
+  </div>
+</div>
+  <!-- CONFIRMACIÓN DE ASISTENCIA -->
+<div class="section reveal">
+  <div class="section">
+    <h2>Confirma tu asistencia</h2>
+    <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSflk1m8FzAth_bp8sJ1XbF22OgnobOrmy0Kox4ph5v4XN0AVQ/viewform?usp=header" target="_blank">
+      Confirmar asistencia
+    </a>
+  </div>
+</div>
+
+<script>
+  function revealOnScroll() {
+    const elements = document.querySelectorAll('.reveal');
+    const windowHeight = window.innerHeight;
+
+    elements.forEach(el => {
+      const elementTop = el.getBoundingClientRect().top;
+
+      if (elementTop < windowHeight - 100) {
+        el.classList.add('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('load', revealOnScroll); // también activa al cargar
+</script>
+
+
+</body>
+</html>
